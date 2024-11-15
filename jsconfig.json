@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "app/*": ["app/*"],
+      "http/*": ["http/*"],
+      "modules/*": ["modules/*"],
+      "services/*": ["services/*"],
+      "styles/*": ["styles/*"]
+    }
+  },
+  "include": ["src"]
+}
