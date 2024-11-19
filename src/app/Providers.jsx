@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { NotificationProvider } from "services";
+import { NotificationProvider } from "services/notifications";
 import { ThemeProviderComponent } from "styles/theme";
 
 const Providers = ({ children }) => {

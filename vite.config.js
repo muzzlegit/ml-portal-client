@@ -5,6 +5,12 @@ import { defineConfig } from "vite";
 export default defineConfig({
   base: "/",
   plugins: [react()],
+  build: {
+    sourcemap: true, // Включение карт кода
+  },
+  server: {
+    port: 5173, // Убедитесь, что порт совпадает
+  },
   resolve: {
     alias: {
       app: "/src/app/",
@@ -12,6 +18,7 @@ export default defineConfig({
       modules: "/src/modules/",
       services: "/src/services/",
       styles: "/src/styles/",
+      shared: "/src/shared/",
     },
   },
 });

@@ -9,13 +9,18 @@ const useAuthStore = create(
       persist(
         (set) => ({
           user: null,
-          isAuth: null,
+          isAuth: false,
+          activeForm: null,
           userColor: "#FFF",
           token: null,
 
           setAuth: (isAuth) =>
             set({
               isAuth,
+            }),
+          setActiveForm: (formType) =>
+            set({
+              activeForm: formType,
             }),
           setUser: (user) => set({ user }),
           setToken: (token) => set({ token }),
@@ -34,8 +39,8 @@ const useAuthStore = create(
               });
               return true;
             } catch (error) {
+              console.log(error.message);
               return false;
-              // console.log(error.message);
             }
           },
           logout: async () => {

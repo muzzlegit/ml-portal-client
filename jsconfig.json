@@ -6,7 +6,8 @@
       "http/*": ["http/*"],
       "modules/*": ["modules/*"],
       "services/*": ["services/*"],
-      "styles/*": ["styles/*"]
+      "styles/*": ["styles/*"],
+      "shared/*": ["shared/*"]
     }
   },
   "include": ["src"]

@@ -1,0 +1,15 @@
+<svg aria-hidden="true" style="position: absolute; width:0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <symbol viewBox="0 0 24 24" id="sign-in"><path  d="M15 3H9a3 3 0 0 0-3 3v4h1V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-4H6v4a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3M3 12h10.25L10 8.75l.66-.75l4.5 4.5l-4.5 4.5l-.66-.75L13.25 13H3z"></path></symbol>
+    <symbol viewBox="0 0 16 16" id="sign-out">
+      <path fill-rule="evenodd" d="M11.02 3.77v1.56l1-.99V2.5l-.5-.5h-9l-.5.5v.486L2 3v10.29l.36.46l5 1.72L8 15v-1h3.52l.5-.5v-1.81l-1-1V13H8V4.71l-.33-.46L4.036 3h6.984zM7 14.28l-4-1.34V3.72l4 1.34zm6.52-5.8H8.55v-1h4.93l-1.6-1.6l.71-.7l2.47 2.46v.71l-2.49 2.48l-.7-.7z" clip-rule="evenodd"></path>
+    </symbol>
+    <symbol viewBox="0 0 14 14" id="register">
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9.5 1.5H11a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-10a1 1 0 0 1 1-1h1.5"></path>
+        <rect width="5" height="2.5" x="4.5" y=".5" rx="1"></rect>
+        <path d="m4.5 8.5l2 1.5L9 6"></path>
+      </g>
+    </symbol>
+  </defs>
+</svg>

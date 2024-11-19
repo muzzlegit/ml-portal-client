@@ -1,4 +1,4 @@
-import { LocalStorageService } from "services/index";
+import { LocalStorageService } from "services/localStorage";
 
 export default function applyInterceptors(api) {
   api.interceptors.request.use((config) => {

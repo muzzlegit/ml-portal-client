@@ -1,11 +1,11 @@
 import Providers from "./Providers";
-import RootLayout from "./RootLayout";
+import AppRouter from "./router/AppRouter";
 
 function App() {
   return (
     <>
       <Providers>
-        <RootLayout />
+        <AppRouter />
       </Providers>
     </>
   );
