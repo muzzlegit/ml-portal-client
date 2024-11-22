@@ -1,10 +1,30 @@
+import iconsSprite from "assets/icons.svg";
 import PropTypes from "prop-types";
 import { Icon } from "./IconComponent.styled";
 
-const IconComponent = ({ sprite, iconName, width, height, ...rest }) => {
+const IconComponent = ({
+  iconName,
+  width = "24",
+  height = "24",
+  fill = "inherit",
+  stroke = "inherit",
+  title,
+  onClick,
+  styles = {},
+  ...rest
+}) => {
   return (
-    <Icon width={width + "px"} height={height + "px"} {...rest}>
-      <use href={sprite + `#${iconName}`}></use>
+    <Icon
+      width={width}
+      height={height}
+      onClick={onClick}
+      styles={styles}
+      fill={fill}
+      stroke={stroke}
+      {...rest}
+    >
+      {title && <title>{title}</title>}
+      <use href={`${iconsSprite}#${iconName}`} />
     </Icon>
   );
 };
@@ -12,8 +32,12 @@ const IconComponent = ({ sprite, iconName, width, height, ...rest }) => {
 export default IconComponent;
 
 IconComponent.propTypes = {
-  sprite: PropTypes.string.isRequired,
   iconName: PropTypes.string.isRequired,
   width: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  stroke: PropTypes.string,
+  fill: PropTypes.string,
+  onClick: PropTypes.func,
+  styles: PropTypes.object,
 };

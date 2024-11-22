@@ -9,8 +9,8 @@ export const Container = styled.div(({ theme }) => ({
   justifyContent: "center",
   borderRadius: "50%",
   overflow: "hidden",
-  backgroundColor: theme.colors?.primary[100],
-  boxShadow: `inset 0 4px 10px ${theme.colors?.secondary[100]}`,
+  backgroundColor: theme.colors?.secondary[100],
+  boxShadow: `inset 0 4px 10px ${theme.colors?.primary[100]}`,
   border: `1px solid ${theme.colors?.primary[10]}`,
 }));
 
@@ -27,7 +27,7 @@ export const Img = styled.div(({ theme }) => ({
     borderRadius: "50%",
     width: `${40 * 0.338}px`,
     height: `${40 * 0.338}px`,
-    backgroundColor: theme.colors?.secondary[100],
+    backgroundColor: theme.colors?.primary[100],
   },
   "::after": {
     position: "absolute",
@@ -39,6 +39,6 @@ export const Img = styled.div(({ theme }) => ({
     borderRadius: "50%",
     width: `${40 * 0.824}px`,
     height: `${40 * 0.824}px`,
-    backgroundColor: theme.colors?.secondary[100],
+    backgroundColor: theme.colors?.primary[100],
   },
 }));

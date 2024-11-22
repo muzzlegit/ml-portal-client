@@ -3,6 +3,7 @@
     "baseUrl": "src",
     "paths": {
       "app/*": ["app/*"],
+      "assets/*": ["assets/*"],
       "http/*": ["http/*"],
       "modules/*": ["modules/*"],
       "services/*": ["services/*"],

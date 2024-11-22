@@ -14,6 +14,7 @@ export default defineConfig({
   resolve: {
     alias: {
       app: "/src/app/",
+      assets: "/src/assets",
       http: "/src/http/",
       modules: "/src/modules/",
       services: "/src/services/",

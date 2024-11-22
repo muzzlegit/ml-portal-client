@@ -9,22 +9,42 @@ const useAuthStore = create(
       persist(
         (set) => ({
           user: null,
-          isAuth: false,
-          activeForm: null,
-          userColor: "#FFF",
+          isRegister: false,
+          userColor: "#BB0A01",
           token: null,
 
           setAuth: (isAuth) =>
             set({
               isAuth,
             }),
-          setActiveForm: (formType) =>
+          setIsRegister: (isRegister) =>
             set({
-              activeForm: formType,
+              isRegister,
             }),
           setUser: (user) => set({ user }),
           setToken: (token) => set({ token }),
 
+          register: async (email, password) => {
+            try {
+              const response = await AuthService.registration(
+                email,
+                password,
+                userIcon,
+                userColor
+              );
+              if (!response || !response?.data)
+                throw new Error("Registration failed");
+              const { user } = response.data;
+              if (!user) throw new Error("Authentication failed");
+              set({
+                isRegister: true,
+              });
+              return true;
+            } catch (error) {
+              console.log(error.message);
+              return false;
+            }
+          },
           login: async (email, password) => {
             try {
               const response = await AuthService.login(email, password);

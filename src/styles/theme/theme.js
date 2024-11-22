@@ -2,8 +2,8 @@ import getColorToken from "./getColorToken";
 
 export const theme = {
   colors: {
-    primary: getColorToken("#2D2F2D"),
-    secondary: getColorToken("#1B1D1B"),
+    primary: getColorToken("#1B1D1B"),
+    secondary: getColorToken("#2D2F2D"),
     text: getColorToken("#DDDDBD"),
     textAcent: getColorToken("#8397a7"),
     red: getColorToken("#BB0A01"),
