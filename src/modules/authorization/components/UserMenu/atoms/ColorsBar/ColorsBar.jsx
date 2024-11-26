@@ -5,7 +5,7 @@ import { Color, ColorsWrap, Container, Title, Wrap } from "./ColorsBar.style";
 const ColorsBar = ({ color, onClick }) => {
   return (
     <Container>
-      <Title>Колір</Title>
+      <Title>Colors</Title>
 
       <ColorsWrap>
         {COLORS.map((c) => {

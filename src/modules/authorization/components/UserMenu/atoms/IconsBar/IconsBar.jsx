@@ -6,7 +6,7 @@ import { Container, Icon, IconsWrap, Title, Wrap } from "./IconsBar.style";
 const IconsBar = ({ icon, iconColor, onClick }) => {
   return (
     <Container>
-      <Title>Іконка</Title>
+      <Title>Icons</Title>
 
       <IconsWrap>
         {ICONS.map((ico) => {

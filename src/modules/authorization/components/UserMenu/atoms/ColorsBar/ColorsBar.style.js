@@ -3,8 +3,9 @@ import styled from "@emotion/styled";
 export const Container = styled.div(({ theme }) => ({
   padding: "12px",
   width: "100%",
-  borderRadius: "12px",
-  backgroundColor: theme.colors?.primary[30],
+  borderRadius: "21px",
+  border: `1px solid ${theme.colors?.white[10]}`,
+  backgroundColor: theme.colors?.primary[40],
 }));
 
 export const ColorsWrap = styled.div(({ theme }) => ({
@@ -16,9 +17,10 @@ export const ColorsWrap = styled.div(({ theme }) => ({
 }));
 
 export const Wrap = styled.div(({ theme, isActive }) => ({
-  padding: "10px",
+  padding: "6px",
   borderRadius: "50px",
   backgroundColor: isActive ? theme.colors?.white[20] : "transparent",
+  boxShadow: isActive ? `inset 0 0 4px 1px ${theme.colors?.black[40]}` : "none",
 }));
 
 export const Color = styled.div(({ color }) => ({
