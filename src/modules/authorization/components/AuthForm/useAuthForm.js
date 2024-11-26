@@ -1,3 +1,4 @@
+import useAuth from "modules/authorization/hooks/useAuth";
 import useAuthStore from "modules/authorization/store/authStore";
 import { COLORS, ICONS } from "modules/authorization/utils/constants";
 import { useState } from "react";
@@ -19,7 +20,7 @@ const useAuthForm = () => {
   const addNotification = useNotificationStore(
     (state) => state.addNotification
   );
-  const register = useAuthStore((state) => state.register);
+  const { register } = useAuth()
   const login = useAuthStore((state) => state.login);
 
   const handleEmail = (email) => {

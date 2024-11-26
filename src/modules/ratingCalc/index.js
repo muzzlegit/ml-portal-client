@@ -1,3 +1,3 @@
-import RatingCalc from "./ratingCalc";
+import RatingCalc from "./RatingCalc";
 
 export { RatingCalc };
