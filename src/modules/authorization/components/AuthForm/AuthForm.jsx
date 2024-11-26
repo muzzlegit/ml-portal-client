@@ -1,6 +1,7 @@
 import ColorsBar from "../UserMenu/atoms/ColorsBar/ColorsBar";
 import IconsBar from "../UserMenu/atoms/IconsBar/IconsBar";
 import Input from "./Atoms/Input/Input";
+import SubmitButton from "./Atoms/SubmitButton/SubmitButton";
 import { Container, Error } from "./AuthForm.styled";
 import useAuthForm from "./useAuthForm";
 
@@ -11,6 +12,7 @@ const AuthForm = () => {
     icon,
     color,
     errors,
+    isLoading,
     handleEmail,
     handlePassword,
     handleIcon,
@@ -19,7 +21,7 @@ const AuthForm = () => {
   } = useAuthForm();
 
   return (
-    <Container>
+    <Container onSubmit={handleSubmit}>
       <div>Увійти</div>
       <div>Зареєструватись</div>
       <Input
@@ -40,7 +42,7 @@ const AuthForm = () => {
       <Error>{errors?.password}</Error>
       <IconsBar icon={icon} iconColor={color} onClick={handleIcon} />
       <ColorsBar color={color} onClick={handleColor} />
-      <button onClick={handleSubmit}>boom</button>
+      <SubmitButton isLoading={isLoading}>{"REGISTER"}</SubmitButton>
     </Container>
   );
 };

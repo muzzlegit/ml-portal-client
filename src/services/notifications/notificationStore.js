@@ -7,10 +7,10 @@ const useNotificationStore = create(
     immer((set) => ({
       notifications: [],
 
-      addNotification: (type, message, delay = 2000) => {
+      addNotification: (type, message, delay = 4000) => {
         const id = Date.now();
         set((state) => {
-          state.notifications.push({ id, type, message });
+          state.notifications.push({ id, type, message: message ?? "Error" });
         });
 
         setTimeout(() => {

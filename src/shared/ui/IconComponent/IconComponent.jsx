@@ -33,8 +33,8 @@ export default IconComponent;
 
 IconComponent.propTypes = {
   iconName: PropTypes.string.isRequired,
-  width: PropTypes.string.isRequired,
-  height: PropTypes.string.isRequired,
+  width: PropTypes.string,
+  height: PropTypes.string,
   title: PropTypes.string,
   stroke: PropTypes.string,
   fill: PropTypes.string,

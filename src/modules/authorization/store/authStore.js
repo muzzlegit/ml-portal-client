@@ -24,7 +24,7 @@ const useAuthStore = create(
           setUser: (user) => set({ user }),
           setToken: (token) => set({ token }),
 
-          register: async (email, password) => {
+          register: async (email, password, userIcon, userColor) => {
             try {
               const response = await AuthService.registration(
                 email,
@@ -32,17 +32,17 @@ const useAuthStore = create(
                 userIcon,
                 userColor
               );
-              if (!response || !response?.data)
-                throw new Error("Registration failed");
-              const { user } = response.data;
-              if (!user) throw new Error("Authentication failed");
               set({
                 isRegister: true,
               });
-              return true;
+              return {
+                status: response.status,
+                message: response?.data?.message,
+              };
             } catch (error) {
-              console.log(error.message);
-              return false;
+              return {
+                message: error?.response?.data?.message,
+              };
             }
           },
           login: async (email, password) => {
@@ -57,10 +57,12 @@ const useAuthStore = create(
                 user,
                 token,
               });
-              return true;
+              return {
+                status: response.status,
+                message: response?.data?.message,
+              };
             } catch (error) {
-              console.log(error.message);
-              return false;
+              return { message: error?.response?.data?.message };
             }
           },
           logout: async () => {

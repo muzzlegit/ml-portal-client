@@ -1,5 +1,7 @@
+import useAuthStore from "modules/authorization/store/authStore";
 import { COLORS, ICONS } from "modules/authorization/utils/constants";
 import { useState } from "react";
+import useNotificationStore from "services/notifications/notificationStore";
 import { ValidationService } from "services/validatinService";
 
 const errorMessages = {
@@ -13,6 +15,12 @@ const useAuthForm = () => {
   const [icon, setIcon] = useState(ICONS[0]);
   const [color, setColor] = useState(COLORS[0]);
   const [errors, setErrors] = useState({ email: null, password: null });
+  const [isLoading, setIsLoading] = useState(false);
+  const addNotification = useNotificationStore(
+    (state) => state.addNotification
+  );
+  const register = useAuthStore((state) => state.register);
+  const login = useAuthStore((state) => state.login);
 
   const handleEmail = (email) => {
     setErrors((prev) => ({ ...prev, email: null }));
@@ -50,7 +58,7 @@ const useAuthForm = () => {
     return { success, data };
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const emailResult = validateField(
       email,
@@ -64,13 +72,19 @@ const useAuthForm = () => {
       "password"
     );
 
-    if (emailResult?.success && passwordResult?.success)
-      console.log({
-        email: emailResult.data,
-        password: passwordResult.data,
-        userColor: color,
-        userIco: icon,
-      });
+    if (emailResult?.success && passwordResult?.success) {
+      setIsLoading(true);
+
+      const registrationResult = await register(
+        emailResult.data,
+        passwordResult.data,
+        icon,
+        color
+      );
+      const { status, message } = registrationResult;
+      addNotification(status === 201 ? "success" : "error", message);
+      setIsLoading(false);
+    }
   };
   return {
     email,
@@ -78,6 +92,7 @@ const useAuthForm = () => {
     icon,
     color,
     errors,
+    isLoading,
     handleEmail,
     handlePassword,
     handleIcon,
