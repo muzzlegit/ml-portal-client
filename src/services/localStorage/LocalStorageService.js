@@ -1,12 +1,12 @@
 export default class LocalStorageService {
-  //   const setItem = (value) => {
-  //   try {
-  //     const clone = deepCopy(value);
-  //     window.localStorage.setItem(key, JSON.stringify(clone));
-  //   } catch (error) {
-  //     console.log("Ошибка записи в локальное хранилище", error);
-  //   }
-  // };
+  static setItem = (key, value) => {
+    try {
+      // const clone = deepCopy(value);
+      window.localStorage.setItem(key, JSON.stringify(value));
+    } catch (error) {
+      console.log("Ошибка записи в локальное хранилище", error);
+    }
+  };
 
   static getItem(key) {
     try {

@@ -1,7 +1,7 @@
 import useAuth from "modules/authorization/hooks/useAuth";
-import useAuthStore from "modules/authorization/store/authStore";
 import { COLORS, ICONS } from "modules/authorization/utils/constants";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import useNotificationStore from "services/notifications/notificationStore";
 import { ValidationService } from "services/validatinService";
 
@@ -20,8 +20,8 @@ const useAuthForm = () => {
   const addNotification = useNotificationStore(
     (state) => state.addNotification
   );
-  const { register } = useAuth()
-  const login = useAuthStore((state) => state.login);
+  const { register, login } = useAuth();
+  const navigate = useNavigate();
 
   const handleEmail = (email) => {
     setErrors((prev) => ({ ...prev, email: null }));
@@ -82,9 +82,17 @@ const useAuthForm = () => {
         icon,
         color
       );
-      const { status, message } = registrationResult;
-      addNotification(status === 201 ? "success" : "error", message);
+      addNotification(
+        registrationResult.status === 201 ? "success" : "error",
+        registrationResult.message
+      );
       setIsLoading(false);
+      const loginResult = await login(emailResult.data, passwordResult.data);
+      addNotification(
+        loginResult.status === 200 ? "success" : "error",
+        loginResult.message
+      );
+      navigate("/");
     }
   };
   return {
